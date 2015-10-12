@@ -1,7 +1,9 @@
 @include ('layouts.inc.header')
 @yield ('css')
 
-@yield ('content')
+<div class='container'>
+	@yield ('content')
+</div>
 
 @include ('layouts.inc.footer')
 @yield ('script')
