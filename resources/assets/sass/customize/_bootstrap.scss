@@ -1,0 +1,28 @@
+.navbar-default {
+  background: white;
+  
+  .navbar-nav {
+    > li {
+      > a {
+        font-size: 16px;
+      }
+      
+      .dropdown-menu {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.checkbox {
+  input[type=checkbox] {
+    margin-top: 2px;
+  }
+}
+
+.alert {
+  &.alert-sm {
+    padding: 5px 35px 5px 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use App\Department;
+use App\User;
+
 class AuthController extends Controller
 {
+	protected $redirectPath = '/';
+	
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -45,6 +49,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'dept_id'	=> 'required|exists:departments,id',
         ]);
     }
 
@@ -57,9 +62,27 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name' 		=> $data['name'],
+            'dept_id'	=> $data['dept_id'],
+            'email' 	=> $data['email'],
+            'password' 	=> bcrypt($data['password']),
         ]);
     }
+	
+	/**
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getRegister()
+	{
+		$departmentList = Department::orderBy('created_at')->get();
+		$deptSelectValues = [];
+		
+		foreach ($departmentList as $dept) {
+			$deptSelectValues[$dept['id']] = $dept['dept_name'];
+		}
+		
+		return view('auth.register')->with(compact('deptSelectValues'));
+	}
 }

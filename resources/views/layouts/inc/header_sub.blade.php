@@ -8,6 +8,15 @@
 	<title>Bootstrap 101 Template</title>
 	
 	<!-- Bootstrap -->
-	<link href="css/app.css" rel="stylesheet">
+	{!! Html::style('css/app.css') !!}
+	
+	<!-- Font awesome -->
+	{!! Html::style('css/font-awesome.min.css') !!}
+	
+	<!-- full calendar -->
+	{!! Html::style('css/plugins/fullcalendar/fullcalendar.min.css') !!}
+	
+	<!-- jstree -->
+	{!! Html::style('css/plugins/jstree/style.min.css') !!}
 </head>
 <body>

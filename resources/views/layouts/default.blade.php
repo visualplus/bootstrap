@@ -1,7 +1,7 @@
 @include ('layouts.inc.header')
 @yield ('css')
 
-<div class='container'>
+<div class='col-xs-12'>
 	@yield ('content')
 </div>
 

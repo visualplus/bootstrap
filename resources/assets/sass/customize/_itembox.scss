@@ -1,0 +1,22 @@
+.itembox {
+  background: white;
+  border: 1px solid #efefef;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: $grid-gutter-width;
+  
+  .itembox-header {
+    padding: 10px;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .itembox-body {
+    padding: 10px;
+  }
+  
+  .itembox-footer {
+    padding: 10px;
+    border-top: 1px solid #f4f4f4;
+  }
+}

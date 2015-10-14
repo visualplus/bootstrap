@@ -1,0 +1,59 @@
+body {
+  background: #f5f5f5;
+  font-size: 12px;
+  color: #5D5D5D;
+  background: url(../images/bg/geometry2.png);
+}
+
+img {
+  max-width: 100%;
+}
+
+a, a:active, a:hover {
+  color: inherit;
+}
+
+header {
+  .navbar-nav {
+    .user-profile {
+      .avatar {
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-top: -8px;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.auth {
+  .login-form, .register-form {
+    margin: 0 auto;
+    float: inherit;
+    margin-top: 40px;
+    
+    @include clearfix();
+    
+    @media (min-width: $screen-md-min) {
+      margin-top: 120px;
+    }
+    
+    .logo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .btn-area {
+      margin-top: 20px;
+      
+      button, input {
+        width: 100%;
+      }
+    }
+    
+    .property {
+      font-size: 13px;
+    }
+  }
+}

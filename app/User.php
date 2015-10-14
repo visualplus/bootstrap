@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'dept_id', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +36,14 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+	
+	/**
+     * 사용자 프로필 이미지 경로를 리턴함.
+     *
+	 * @param string $size
+     * @return string
+     */
+	public function profileImage($size = 'auto') {
+		return "/image/{$size}/profiles/images/user_male.png";
+	}
 }

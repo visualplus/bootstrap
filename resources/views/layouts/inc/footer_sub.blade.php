@@ -1,7 +1,18 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	{!! Html::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}
+	
+	<!-- moment -->
+	{!! Html::script('js/moment.min.js') !!}
+	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
+	{!! Html::script('js/bootstrap.min.js') !!}
+	
+	<!-- full calendar -->
+	{!! Html::script('js/plugins/fullcalendar/fullcalendar.min.js') !!}
+	{!! Html::script('js/plugins/fullcalendar/lang-all.js') !!}
+	
+	<!-- jstree -->
+	{!! Html::script('js/plugins/jstree/jstree.min.js') !!}
 	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
