@@ -49,7 +49,17 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$this->validate($request, [
+			'p_id'		=> 'required',
+			'dept_name'	=> 'required',
+		]);
+		
+		$dept = Department::create([
+			'p_id'		=> $request->get('p_id'),
+			'dept_name'	=> $request->get('dept_name'),
+		]);
+		
+		return Response()->json($dept);
     }
 
     /**
@@ -83,7 +93,20 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    	$this->validate($request, [
+    		'dept_name'		=> 'required',
+    	]);
+		
+    	$dept = Department::find($id);
+		
+		if ($dept) {
+			$dept->dept_name = $request->get('dept_name');
+			$dept->save();
+		}
+		
+		return Response()->json([
+			'result'	=> 'success',
+		]);
     }
 
     /**
@@ -94,6 +117,14 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+    	$dept = Department::find($id);
+		
+    	if ($dept && $dept->p_id != null) {
+    		$dept->delete();
+		}
+		
+		return Response()->json([
+			'result' => 'success',
+		]);
     }
 }

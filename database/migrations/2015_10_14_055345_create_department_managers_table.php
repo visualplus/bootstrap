@@ -19,8 +19,8 @@ class CreateDepartmentManagersTable extends Migration
 			$table->enum('role', ['manager', 'sub-manager'])->default('sub-manager');
 			$table->timestamps();
 			
-			$table->foreign('user_id')->references('id')->on('users');
-			$table->foreign('dept_id')->references('id')->on('departments');
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->foreign('dept_id')->references('id')->on('departments')->onDelete('cascade');
 		});
     }
 

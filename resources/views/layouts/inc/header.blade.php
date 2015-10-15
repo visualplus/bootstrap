@@ -18,7 +18,7 @@
 			
 				<div class='collapse navbar-collapse' id='header-navbar'>
 					<ul class='nav navbar-nav navbar-right'>
-						<li class='dropdown'>
+						<li class='dropdown hidden-sm hidden-xs'>
 							<a href='#' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 								<span class='fa fa-bell-o'></span>
 							</a>
@@ -28,7 +28,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class='dropdown user-profile'>
+						<li class='dropdown user-profile hidden-sm hidden-xs'>
 							<a href='#' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 								<div class='avatar'>
 									<img src='{{ Auth::user()->profileImage() }}' class='img-circle'>

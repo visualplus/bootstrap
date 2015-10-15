@@ -20,7 +20,7 @@ class CreateDepartmentsTable extends Migration
 			$table->boolean('useflag')->default(true);
 			$table->timestamps();
 			
-			$table->foreign('p_id')->references('id')->on('departments');
+			$table->foreign('p_id')->references('id')->on('departments')->onDelete('cascade');
 		});
 		
 		Schema::table('users', function ($table) {
