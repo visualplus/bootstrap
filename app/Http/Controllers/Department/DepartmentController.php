@@ -58,7 +58,6 @@ class DepartmentController extends Controller
 			'p_id'		=> $request->get('p_id'),
 			'dept_name'	=> $request->get('dept_name'),
 		]);
-		
 		return Response()->json($dept);
     }
 

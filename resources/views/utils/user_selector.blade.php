@@ -1,26 +1,46 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-	<div class="modal-dialog" role="document">
+<div class="modal fade" id="modalUserSelector" tabindex="-1" role="dialog" aria-labelledby="modalUserSelectorLabel">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="exampleModalLabel">New message</h4>
+				<h4 class="modal-title" id="modalUserSelectorLabel">사용자 선택</h4>
 			</div>
 			<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="recipient-name" class="control-label">Recipient:</label>
-						<input type="text" class="form-control" id="recipient-name">
+				<div class='row'>
+					<div class='col-sm-4'>
+						@include ('utils.dept_list', ['id' => 'dept_list_from_user_selector', 'viewOnly' => true])
 					</div>
-					<div class="form-group">
-						<label for="message-text" class="control-label">Message:</label>
-						<textarea class="form-control" id="message-text"></textarea>
+					<div class='col-sm-8'>
+						<div class='itembox'>
+							<div class='itembox-header'>
+								<span class='fa fa-user'></span> 사용자
+							</div>
+							<div class='itembox-body'>
+								<div id='user_list'></div>
+							</div>
+						</div>
 					</div>
-				</form>
+				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Send message</button>
+				<button type="button" class="btn btn-primary">선택</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+@section ('script')
+@parent
+<script>
+$(function() {
+	$('#user_list').getUser({
+		url: "{{ url('user/user') }}",
+		fire: {
+			object: $('#dept_list_from_user_selector_tree'),
+		},
+		renderer: 'userlist.default'
+	})
+})
+</script>
+@append

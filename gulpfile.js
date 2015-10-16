@@ -16,6 +16,7 @@ elixir(function(mix) {
     	.sass('app.scss')
     	.coffee([
     		'app.coffee',
-    		'deptTree.coffee'
+    		'deptTree.coffee',
+    		'getUser.coffee'
     	]);
 });

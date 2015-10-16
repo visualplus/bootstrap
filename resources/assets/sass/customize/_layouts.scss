@@ -15,14 +15,30 @@ a, a:active, a:hover {
 }
 
 header {
-  .navbar-nav {
-    .user-profile {
-      .avatar {
-        width: 40px;
-        height: 40px;
-        float: left;
-        margin-top: -8px;
-        padding-right: 5px;
+  background: #428bca;
+  
+  .navbar {
+    background: transparent;
+    
+    .navbar-brand, .navbar-brand:hover {
+      color: white;
+    }
+    
+    .navbar-nav {
+      > li {
+        > a, > a:hover {
+          color: white;
+        }
+      }
+      
+      .user-profile {
+        .avatar {
+          width: 40px;
+          height: 40px;
+          float: left;
+          margin-top: -8px;
+          padding-right: 5px;
+        }
       }
     }
   }

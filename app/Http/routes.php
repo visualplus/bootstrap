@@ -20,6 +20,10 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['namespace' => 'Department'], function() {
 		Route::resource('/department', 'DepartmentController');
 	});
+	
+	Route::group(['namespace' => 'User'], function() {
+		Route::controller('/user', 'UserController');
+	});
 });
 
 // 인증 관련 컨트롤러들..

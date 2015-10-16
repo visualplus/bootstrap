@@ -28,7 +28,11 @@
 								</li>
 							</ul>
 						</li>
+						<li class='hidden-md hidden-lg'>
+							{!! Html::link('auth/logout', '로그아웃') !!}
+						</li>
 						<li class='dropdown user-profile hidden-sm hidden-xs'>
+							<!-- pc용 사용자 메뉴 -->
 							<a href='#' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 								<div class='avatar'>
 									<img src='{{ Auth::user()->profileImage() }}' class='img-circle'>

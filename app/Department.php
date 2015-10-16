@@ -26,6 +26,30 @@ class Department extends Model
      * @return Illuminate\Support\Collection
      */
     public function childDepartments() {
-    	return $this->hasMany('App\Department', 'id', 'p_id');
+    	
+    	return $this->hasMany('App\Department', 'p_id', 'id');
     }
+	
+	/**
+	 * 모든 하위 부서를 가져옴
+	 * 
+	 * @return Illumicate\Support\Collection
+	 */
+	private function getChildDepartmentsRecursive($dept) {
+		$list = collect([]);
+		
+		foreach ($dept->childDepartments as $childDept) {
+			$list->push($childDept);
+			
+			$list = $list->merge($this->getChildDepartmentsRecursive($childDept));
+		}
+		
+		return $list;
+	}
+	
+	public function allChildDepartments() {
+		$list = $this->getChildDepartmentsRecursive($this);
+		
+		return $list;
+	}
 }
