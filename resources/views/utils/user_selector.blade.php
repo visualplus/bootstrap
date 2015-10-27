@@ -39,6 +39,7 @@ $(function() {
 		fire: {
 			object: $('#dept_list_from_user_selector_tree'),
 		},
+		target: $('#user_list'),
 		renderer: 'userlist.default'
 	})
 })

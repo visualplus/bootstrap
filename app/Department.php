@@ -49,6 +49,7 @@ class Department extends Model
 	
 	public function allChildDepartments() {
 		$list = $this->getChildDepartmentsRecursive($this);
+		$list->push($this);
 		
 		return $list;
 	}

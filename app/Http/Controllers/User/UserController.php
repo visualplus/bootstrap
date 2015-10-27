@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Department;
+use App\User;
+
 class UserController extends Controller
 {
 	/**
@@ -14,11 +17,23 @@ class UserController extends Controller
 	 * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-	public function getUserAsJSON(Request $request) {
+	private function getUserCollection(Request $request) {
 		$type = $request->get('type', 'dept_id');
 		$value = $request->get('value', '0');
+		$list = collect([]);
 		
+		switch ($type) {
+			case 'dept_id':
+				$dept = Department::find($value);
+				if ($dept) {
+					$allDepts = $dept->allChildDepartments();
+					
+					$list = User::whereIn('dept_id', $allDepts->pluck('id')->toArray())->get();
+				}
+				break;
+		}
 		
+		return $list;
 	}
 	
 	/**
@@ -28,6 +43,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 	public function getUser(Request $request) {
-		$list = $this->getUserAsJSON($request);
+		$list = $this->getUserCollection($request);
+		
+		return view('renderer.'.$request->get('renderer'))->with(compact('list'));
 	}
 }

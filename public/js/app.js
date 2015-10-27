@@ -145,7 +145,7 @@
             type: 'dept_id',
             value: node.node.id
           };
-          settings.object.trigger('update.userlist', opts);
+          settings.object.trigger('selected.deptlist', opts);
           return null;
         });
         if (settings.addBtn.size() > 0) {
@@ -193,6 +193,7 @@
         fire: {
           object: null
         },
+        target: null,
         renerer: 'userlist.default'
       };
       settings = $.extend(settings, options);
@@ -203,10 +204,11 @@
           dataType: 'HTML',
           data: {
             type: data.type,
-            value: data.value
+            value: data.value,
+            renderer: settings.renderer
           },
           success: function(html) {
-            return console.log(html);
+            return settings.target.html(html);
           },
           error: function(e) {
             return console.log(e);
@@ -215,7 +217,7 @@
         return null;
       };
       return this.each(function() {
-        settings.fire.object.on('update.userlist', _get);
+        settings.fire.object.on('selected.deptlist', _get);
         return $(this);
       });
     }

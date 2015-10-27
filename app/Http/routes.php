@@ -13,10 +13,6 @@
 
 // 로그인 후 사용할 수 있는 컨트롤러들..
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/', function () {
-	    return view('tree');
-	});
-	
 	Route::group(['namespace' => 'Department'], function() {
 		Route::resource('/department', 'DepartmentController');
 	});
@@ -24,6 +20,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['namespace' => 'User'], function() {
 		Route::controller('/user', 'UserController');
 	});
+	
+	Route::controller('page', 'Pages\PagesController');
 });
 
 // 인증 관련 컨트롤러들..

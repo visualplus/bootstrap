@@ -12,8 +12,9 @@ $.fn.extend
 			
 			fire:					# 사용자 가져올 시점
 				object: null		#- 이벤트를 발생시키는 오브젝트
-				
-			renerer: 'userlist.default'		#- 사용자 리스트에 사용할 view
+			
+			target: null			# 사용자 리스트를 그릴 오브젝트
+			renerer: 'userlist.default'		# 사용자 리스트에 사용할 view
 		
 		# Merge default settings with options.
 		settings = $.extend settings, options
@@ -32,8 +33,9 @@ $.fn.extend
 				data: 
 					type: data.type
 					value: data.value
+					renderer: settings.renderer
 				success: (html) ->
-					console.log html
+					settings.target.html html
 				error: (e) ->
 					console.log e
 				
@@ -41,6 +43,6 @@ $.fn.extend
 		
 		# _Insert magic here._
 		return @each () ->
-			settings.fire.object.on 'update.userlist', _get
+			settings.fire.object.on 'selected.deptlist', _get
 			
 			$(this)

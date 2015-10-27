@@ -18,6 +18,12 @@
 			
 				<div class='collapse navbar-collapse' id='header-navbar'>
 					<ul class='nav navbar-nav navbar-right'>
+						<li>
+							{!! Html::link('page/management', '부서/사원 관리') !!}
+						</li>
+						<li>
+							{!! Html::link('page/document', '전자결재') !!}
+						</li>
 						<li class='dropdown hidden-sm hidden-xs'>
 							<a href='#' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 								<span class='fa fa-bell-o'></span>
@@ -34,9 +40,6 @@
 						<li class='dropdown user-profile hidden-sm hidden-xs'>
 							<!-- pc용 사용자 메뉴 -->
 							<a href='#' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-								<div class='avatar'>
-									<img src='{{ Auth::user()->profileImage() }}' class='img-circle'>
-								</div>
 								<span class='hidden-sm hidden-xs'>{{ Auth::user()->name }}</span>
 							</a>
 							

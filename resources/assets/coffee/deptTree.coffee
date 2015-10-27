@@ -133,7 +133,7 @@ $.fn.extend
 					type: 'dept_id'
 					value: node.node.id
 				
-				settings.object.trigger 'update.userlist', opts
+				settings.object.trigger 'selected.deptlist', opts
 				null
 			
 			if settings.addBtn.size() > 0
