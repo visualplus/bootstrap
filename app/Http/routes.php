@@ -41,3 +41,7 @@ Route::group(['namespace' => 'Utils'], function() {
 	// storage 안에 있는 이미지 보여주기
 	Route::get('image/{size}/{path?}', 'ImageController@getImage')->where('path', '(.*)');
 });
+
+Route::get('/', function () {
+	return redirect('/page/management');
+});
